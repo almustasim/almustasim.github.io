@@ -24,12 +24,6 @@ h1{font-size:clamp(2.6rem,8.5vw,6.4rem);font-weight:300;letter-spacing:.14em;lin
 .btn:hover{background:transparent;color:var(--em)}
 .btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--fg)}
-.hero-text,.portrait{animation:in 1.2s .15s both}.portrait{animation-delay:.5s}
-@keyframes in{from{opacity:0;transform:translateY(12px)}}
-.portrait{aspect-ratio:4/5;position:relative;border:1px solid var(--line);background:var(--g1);overflow:hidden}
-.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.05)}
-.portrait figcaption{display:none;position:absolute;inset:0;place-items:center;text-align:center;padding:1rem;color:var(--mut);font-size:.9rem}
-.portrait.missing img{display:none}.portrait.missing figcaption{display:grid}
 .sec{max-width:1060px;margin:auto;padding:6rem clamp(1rem,5vw,3rem) 0}
 .sec h2{font-weight:400;font-size:1.7rem;letter-spacing:.02em;margin-bottom:1.6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 h3{font-weight:500;font-size:1.1rem}
