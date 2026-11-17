@@ -67,3 +67,71 @@ loadRepos()
 // 3D hero: optional. If WebGL or the CDN fails, the CSS background stays.
 const cv = $("#scene");
 import("./scene.js").then((m) => m.initScene(cv)).catch(() => cv.classList.add("off"));
+/* =====================================
+   PREMIUM 3D PORTRAIT TILT
+   ===================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const card = document.querySelector(".portrait-card");
+
+    if (!card) return;
+
+    // Respect accessibility preferences
+    if (window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches) return;
+
+    // Disable tilt on touch devices
+    if (!window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+    ).matches) return;
+
+    const maxTilt = 8;
+    let animationFrame;
+
+    card.addEventListener("pointermove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        // Calculate smooth rotation
+        const rotateY = (x - 0.5) * maxTilt * 2;
+        const rotateX = (0.5 - y) * maxTilt * 2;
+
+        cancelAnimationFrame(animationFrame);
+
+        animationFrame = requestAnimationFrame(() => {
+
+            card.style.setProperty(
+                "--rotate-x",
+                `${rotateX}deg`
+            );
+
+            card.style.setProperty(
+                "--rotate-y",
+                `${rotateY}deg`
+            );
+
+            card.style.setProperty("--lift", "-8px");
+        });
+
+    });
+
+    // Reset smoothly
+    const resetCard = () => {
+
+        cancelAnimationFrame(animationFrame);
+
+        card.style.setProperty("--rotate-x", "0deg");
+        card.style.setProperty("--rotate-y", "0deg");
+        card.style.setProperty("--lift", "0px");
+
+    };
+
+    card.addEventListener("pointerleave", resetCard);
+    card.addEventListener("pointercancel", resetCard);
+
+});
