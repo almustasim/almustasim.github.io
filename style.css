@@ -57,3 +57,20 @@ a.repo{display:block;text-decoration:none}a.repo:hover h3{color:var(--em)}
 footer{max-width:1060px;margin:6rem auto 0;padding:2rem clamp(1rem,5vw,3rem);color:var(--mut);font-size:.9rem}
 @media(max-width:800px){.hero-inner{grid-template-columns:1fr}.portrait{max-width:240px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center; /* Centers the icons */
+}
+
+.social-icons a {
+    color: #ffffff; /* Makes icons white so you can see them */
+    font-size: 30px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0077b5; /* Changes color when hovering */
+}
