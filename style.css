@@ -74,3 +74,51 @@ footer{max-width:1060px;margin:6rem auto 0;padding:2rem clamp(1rem,5vw,3rem);col
 .social-icons a:hover {
     color: #0077b5; /* Changes color when hovering */
 }
+/* --- AESTHETIC PORTRAIT CARD --- */
+
+/* The container that holds the picture and centers it */
+.hero-portrait-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Sets up 3D space */
+}
+
+/* The glass card behind the image */
+.portrait-card {
+    background: rgba(255, 255, 255, 0.05); /* Very transparent white */
+    backdrop-filter: blur(10px); /* Blurs the background behind it */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border-radius: 24px; /* Modern rounded corners */
+    padding: 15px; /* Space between the image and the card edge */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
+                0 0 40px rgba(52, 199, 137, 0.2); /* Soft green glow to match your theme */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* The Image itself */
+.portrait-card img {
+    width: 320px; /* Size of the image */
+    height: auto;
+    border-radius: 16px; /* Rounds the image inside the card */
+    display: block;
+    filter: brightness(1.1) contrast(1.1); /* Makes the image pop slightly */
+}
+
+/* --- THE ANIMATION --- */
+/* When the mouse hovers over the card, it floats up and tilts */
+.portrait-card:hover {
+    transform: translateY(-10px) rotateY(-5deg) rotateX(5deg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
+                0 0 60px rgba(52, 199, 137, 0.4); /* Stronger glow on hover */
+}
+
+/* Floating animation when the page first loads */
+@keyframes floatIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-portrait-container {
+    animation: floatIn 1s ease-out forwards;
+}
