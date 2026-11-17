@@ -59,14 +59,14 @@ footer{max-width:1060px;margin:6rem auto 0;padding:2rem clamp(1rem,5vw,3rem);col
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 30px;
     margin-top: 20px;
     justify-content: center; /* Centers the icons */
 }
 
 .social-icons a {
     color: #ffffff; /* Makes icons white so you can see them */
-    font-size: 30px;
+    font-size: 35px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
